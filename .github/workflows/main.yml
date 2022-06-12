@@ -3,7 +3,6 @@ name: Add needs-review and size/XL pull requests to projects
 on:
   issues:
     types:
-      - opened
       - labeled
 
 jobs:
