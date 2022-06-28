@@ -1,0 +1,16 @@
+name: Label command
+on:
+  repository_dispatch:
+    types: [label-command]
+
+jobs:
+  add_label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump the client payload context
+        env:
+          PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+        run: echo "$PAYLOAD_CONTEXT"
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: ${{ github.event.client_payload.slash_command.args.unnamed.arg1 }}
