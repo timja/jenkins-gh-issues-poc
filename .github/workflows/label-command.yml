@@ -14,4 +14,4 @@ jobs:
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: ${{ github.event.client_payload.slash_command.args.unnamed.arg1 }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ github.event.client_payload.github.payload.issue.number }}
