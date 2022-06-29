@@ -1,7 +1,7 @@
-name: Add label command
+name: Remove label command
 on:
   repository_dispatch:
-    types: [label-command]
+    types: [remove-label-command]
 
 jobs:
   add_label:
@@ -11,7 +11,7 @@ jobs:
         env:
           PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
         run: echo "$PAYLOAD_CONTEXT"
-      - uses: actions-ecosystem/action-add-labels@v1
+      - uses: actions-ecosystem/action-remove-labels@v1
         with:
           labels: ${{ github.event.client_payload.slash_command.args.unnamed.all }}
           number: ${{ github.event.client_payload.github.payload.issue.number }}
