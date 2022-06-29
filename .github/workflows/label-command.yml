@@ -13,7 +13,7 @@ jobs:
         run: echo "$PAYLOAD_CONTEXT"
       - uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: ${{ github.event.client_payload.slash_command.args.unnamed.arg1 }}
+          labels: ${{ github.event.client_payload.slash_command.args.unnamed.all }}
           number: ${{ github.event.client_payload.github.payload.issue.number }}
       - name: Add reaction
         uses: peter-evans/create-or-update-comment@v2
